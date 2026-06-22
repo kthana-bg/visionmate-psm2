@@ -90,7 +90,7 @@ def _efficientnetb0_inference(roi: np.ndarray) -> dict:
     strained_prob = 1.0 / (1.0 + math.exp(-10.0 * (raw - 0.48)))
     strained_prob = float(np.clip(strained_prob, 0.0, 1.0))
 
-    label = "Strained" if strained_prob > 0.70 else "Normal"
+    label = "Strained" if strained_prob > 0.50 else "Normal"
     confidence = strained_prob if label == "Strained" else 1.0 - strained_prob
     latency_ms = (time.perf_counter() - start) * 1000.0
 
