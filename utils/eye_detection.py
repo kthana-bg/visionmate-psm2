@@ -105,7 +105,7 @@ def run_eye_model_inference(model, roi: np.ndarray, model_name: str) -> dict:
     input_tensor = preprocess_eye_image(roi, model_name)
     prediction = model.predict(input_tensor, verbose=0)[0]
     confidence = float(prediction[1])
-    label = "Strained" if confidence > 0.70 else "Normal"
+    label = "Strained" if confidence > 0.50 else "Normal"
     if label == "Normal":
         confidence = float(prediction[0])
     latency_ms = (time.perf_counter() - start) * 1000.0
