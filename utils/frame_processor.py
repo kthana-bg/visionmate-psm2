@@ -157,7 +157,7 @@ def process_frame(
                             eye_lat = inf["latency_ms"]
                         except Exception as me:
                             print(f"[EYE MODEL ERROR] {me}")
-                            eye_status = "Normal" if ear_val < 0.21 else "Strained"
+                            eye_status = "Normal" if ear_val > 0.21 else "Strained"
 
                 draw_eye_landmarks(frame_bgr, left_eye, right_eye)
 
@@ -217,7 +217,7 @@ def process_frame(
     posture_color = (0, 255, 0) if posture_status == "Good" else (0, 0, 255)
 
     cv2.putText(frame_bgr, f"Eye: {eye_status}", (10, 25), cv2.FONT_HERSHEY_SIMPLEX, 0.6, eye_color, 2)
-    cv2.putText(frame_bgr, f"Posture: {posture_status}", (10, 70), cv2.FONT_HERSHEY_SIMPLEX, 0.6, posture_color, 2)
+    cv2.putText(frame_bgr, f"Posture: {posture_status}", (10, 48), cv2.FONT_HERSHEY_SIMPLEX, 0.6, posture_color, 2)
 
     result.frame_bgr = frame_bgr
     result.eye_status = eye_status
