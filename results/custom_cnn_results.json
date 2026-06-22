@@ -1,0 +1,53 @@
+{
+  "model_name": "Custom CNN",
+  "task": "Eye Strain Detection",
+  "validation": {
+    "accuracy": 0.9896,
+    "precision": 0.9897,
+    "recall": 0.9896,
+    "f1_score": 0.9896,
+    "confusion_matrix": [
+      [
+        8540,
+        51
+      ],
+      [
+        125,
+        8264
+      ]
+    ],
+    "classification_report": "              precision    recall  f1-score   support\n\n      Normal       0.99      0.99      0.99      8591\n    Strained       0.99      0.99      0.99      8389\n\n    accuracy                           0.99     16980\n   macro avg       0.99      0.99      0.99     16980\nweighted avg       0.99      0.99      0.99     16980\n"
+  },
+  "test": {
+    "accuracy": 0.9899,
+    "precision": 0.99,
+    "recall": 0.9899,
+    "f1_score": 0.9899,
+    "confusion_matrix": [
+      [
+        8551,
+        40
+      ],
+      [
+        131,
+        8259
+      ]
+    ],
+    "classification_report": "              precision    recall  f1-score   support\n\n      Normal       0.98      1.00      0.99      8591\n    Strained       1.00      0.98      0.99      8390\n\n    accuracy                           0.99     16981\n   macro avg       0.99      0.99      0.99     16981\nweighted avg       0.99      0.99      0.99     16981\n"
+  },
+  "latency_ms": 82.72,
+  "classes": [
+    "Normal",
+    "Strained"
+  ],
+  "hyperparameters": {
+    "image_size": [
+      32,
+      64
+    ],
+    "batch_size": 32,
+    "epochs_ran": 50,
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001
+  }
+}

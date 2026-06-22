@@ -1,0 +1,55 @@
+{
+  "model_name": "EfficientNetB0",
+  "task": "Eye Strain Detection",
+  "validation": {
+    "accuracy": 0.9878,
+    "precision": 0.9878,
+    "recall": 0.9878,
+    "f1_score": 0.9877,
+    "confusion_matrix": [
+      [
+        8523,
+        68
+      ],
+      [
+        140,
+        8249
+      ]
+    ],
+    "classification_report": "              precision    recall  f1-score   support\n\n      Normal       0.98      0.99      0.99      8591\n    Strained       0.99      0.98      0.99      8389\n\n    accuracy                           0.99     16980\n   macro avg       0.99      0.99      0.99     16980\nweighted avg       0.99      0.99      0.99     16980\n"
+  },
+  "test": {
+    "accuracy": 0.9869,
+    "precision": 0.987,
+    "recall": 0.9869,
+    "f1_score": 0.9869,
+    "confusion_matrix": [
+      [
+        8528,
+        63
+      ],
+      [
+        159,
+        8231
+      ]
+    ],
+    "classification_report": "              precision    recall  f1-score   support\n\n      Normal       0.98      0.99      0.99      8591\n    Strained       0.99      0.98      0.99      8390\n\n    accuracy                           0.99     16981\n   macro avg       0.99      0.99      0.99     16981\nweighted avg       0.99      0.99      0.99     16981\n"
+  },
+  "latency_ms": 102.6,
+  "classes": [
+    "Normal",
+    "Strained"
+  ],
+  "hyperparameters": {
+    "image_size": [
+      96,
+      96
+    ],
+    "batch_size": 32,
+    "epochs_phase1_ran": 12,
+    "epochs_phase2_ran": 20,
+    "lr_phase1": 0.001,
+    "lr_phase2": 2e-05,
+    "unfreeze_layers": 30
+  }
+}

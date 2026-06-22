@@ -1,0 +1,115 @@
+{
+  "model_name": "YOLOv8-Pose / MoveNet DNN",
+  "task": "Posture Detection",
+  "dataset": "alnatron/posture-detection",
+  "features": [
+    "angle_y",
+    "angle_z",
+    "tilt_magnitude",
+    "angle_y_sq",
+    "angle_z_sq",
+    "angle_yz_interaction",
+    "tilt_angle"
+  ],
+  "class_names": [
+    "Good Posture",
+    "Leaning Forward",
+    "Neck Bend",
+    "Shoulder Tilt",
+    "Slouching"
+  ],
+  "good_class_index": 0,
+  "accuracy": 0.5249,
+  "precision": 0.6053,
+  "recall": 0.5249,
+  "f1_score": 0.5457,
+  "roc_auc": 0.5386,
+  "multiclass_accuracy": 0.2301,
+  "latency_ms": 78.89,
+  "threshold": 0.8015,
+  "confusion_matrix": [
+    [
+      1052,
+      940
+    ],
+    [
+      2267,
+      2491
+    ]
+  ],
+  "multiclass_confusion_matrix": [
+    [
+      278,
+      187,
+      342,
+      652,
+      533
+    ],
+    [
+      144,
+      177,
+      201,
+      359,
+      313
+    ],
+    [
+      115,
+      132,
+      277,
+      401,
+      288
+    ],
+    [
+      112,
+      108,
+      216,
+      420,
+      264
+    ],
+    [
+      153,
+      140,
+      165,
+      372,
+      401
+    ]
+  ],
+  "classification_report": "               precision    recall  f1-score   support\n\n         Good       0.32      0.53      0.40      1992\nSlouching/Bad       0.73      0.52      0.61      4758\n\n     accuracy                           0.52      6750\n    macro avg       0.52      0.53      0.50      6750\n weighted avg       0.61      0.52      0.55      6750\n",
+  "multiclass_classification_report": "                 precision    recall  f1-score   support\n\n   Good Posture       0.35      0.14      0.20      1992\nLeaning Forward       0.24      0.15      0.18      1194\n      Neck Bend       0.23      0.23      0.23      1213\n  Shoulder Tilt       0.19      0.38      0.25      1120\n      Slouching       0.22      0.33      0.26      1231\n\n       accuracy                           0.23      6750\n      macro avg       0.25      0.24      0.23      6750\n   weighted avg       0.26      0.23      0.22      6750\n",
+  "feature_importance": [
+    {
+      "feature": "angle_z squared",
+      "importance": 0.093185
+    },
+    {
+      "feature": "angle_y squared",
+      "importance": 0.090963
+    },
+    {
+      "feature": "tilt_angle (lean direction)",
+      "importance": 0.084
+    },
+    {
+      "feature": "angle_z (neck tilt Z)",
+      "importance": 0.040741
+    },
+    {
+      "feature": "angle_y (neck tilt Y)",
+      "importance": 0.038519
+    },
+    {
+      "feature": "angle_y * angle_z interaction",
+      "importance": 0.017481
+    },
+    {
+      "feature": "tilt_magnitude (overall tilt)",
+      "importance": 0.007852
+    }
+  ],
+  "hyperparameters": {
+    "batch_size": 64,
+    "epochs": 100,
+    "lr": 0.0008,
+    "weight_decay": 0.0001
+  }
+}
