@@ -273,7 +273,6 @@ def render_monitoring_tab(
         if eye_alert or posture_alert:
             play_beep()
             reason = "Eye strain" if eye_alert else "Bad posture"
-            st.warning(f"{reason} detected for over a minute. Please take a break.")
 
         last_save = st.session_state.get("last_metric_save", 0)
         if time.time() - last_save >= 5 and result.face_detected:
