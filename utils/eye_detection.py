@@ -46,7 +46,7 @@ def get_eye_roi(frame: np.ndarray, eye_landmarks: np.ndarray, padding: int = 10)
 
 def preprocess_eye_image(roi: np.ndarray, model_name: str) -> np.ndarray:
     roi_rgb = cv2.cvtColor(roi, cv2.COLOR_BGR2RGB)
-    target_size = (96, 96) if model_name == "EfficientNetB0" else (64, 32)
+    target_size = (96, 96) if model_name == "EfficientNetB0" else (32, 64)
     resized = cv2.resize(roi_rgb, target_size)
     img = resized.astype(np.float32) / 255.0
     return np.expand_dims(img, axis=0)
