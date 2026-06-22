@@ -263,10 +263,6 @@ def render_analytics_tab(user_id: int):
             build_posture_chart(df, window_hours), use_container_width=True
         )
 
-    if len(df) >= 10:
-        st.subheader("Strain and Slouching Rate Over Time")
-        st.plotly_chart(build_status_heatmap(df, window_hours), use_container_width=True)
-
     with st.expander("View Raw Data"):
         display_cols = [
             "datetime", "eye_status", "ear_value",
