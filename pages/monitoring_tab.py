@@ -9,6 +9,7 @@ if _ROOT not in sys.path:
 
 from utils.frame_processor import FrameResult, load_mediapipe_landmarkers
 from utils.beep_alert import BeepAlert, play_beep
+from utils.voice_alert import maybe_speak_alert, render_voice_controls
 from database.db_manager import save_health_metric
 
 
@@ -197,6 +198,8 @@ def render_monitoring_tab(
             st.session_state["monitoring_active"] = False
             beep_alert.reset_all()
 
+    render_voice_controls()
+
     st.divider()
 
     if not st.session_state.get("monitoring_active", False):
@@ -273,6 +276,11 @@ def render_monitoring_tab(
         if eye_alert or posture_alert:
             play_beep()
             reason = "Eye strain" if eye_alert else "Bad posture"
+            maybe_speak_alert(
+                result.eye_status,
+                result.posture_status,
+                (st.session_state.get("user") or {}).get("full_name"),
+            )
 
         last_save = st.session_state.get("last_metric_save", 0)
         if time.time() - last_save >= 5 and result.face_detected:
