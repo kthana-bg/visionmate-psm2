@@ -16,3 +16,5 @@ h5py
 python-dotenv
 tornado
 twilio>=8.0.0
+piper-tts
+ 
