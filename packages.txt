@@ -2,5 +2,4 @@ libgl1
 libglib2.0-dev
 libgles2
 libegl1
-piper-tts
- 
+
